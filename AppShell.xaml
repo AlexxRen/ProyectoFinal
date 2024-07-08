@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ProyectoFinal.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ProyectoFinal"
+    xmlns:models="clr-namespace:ProyectoFinal.Models"
+    xmlns:views="clr-namespace:ProyectoFinal.Views.Main" 
+    xmlns:vA="clr-namespace:ProyectoFinal.Views.Agente"
+    xmlns:vS="clr-namespace:ProyectoFinal.Views.Siniestro"
+    xmlns:vP="clr-namespace:ProyectoFinal.Views.Persona"
+     Shell.FlyoutBehavior="Flyout"  Shell.TabBarIsVisible="False"
+    Title="ProyectoFinal">
+
+    <FlyoutItem Title="Inicio" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Inicio" Icon="{x:Static models:Icon.Dashboard}" Route="HomePage" ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Title="Agente" Icon="{x:Static models:Icon.ContactUs}" Route="AgentePage" ContentTemplate="{DataTemplate vA:AgentePage}"/>
+        <ShellContent Title="Siniestro" Icon="{x:Static models:Icon.AboutUs}" Route="SiniestroPage" ContentTemplate="{DataTemplate vS:SinistroPage}"/>
+        <ShellContent Title="Siniestro" Icon="{x:Static models:Icon.AboutUs}" Route="SiniestroPage" ContentTemplate="{DataTemplate vP:PersonaPage}"/>
+    </FlyoutItem>
+
+    <ShellContent Title="Inicio" Icon="{x:Static models:Icon.Dashboard}" Route="HomePage" ContentTemplate="{DataTemplate views:HomePage}"/>
+
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Terminar Sesión" Command="{Binding FinishoutCommand}" BackgroundColor="#1d8348"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+</Shell>
